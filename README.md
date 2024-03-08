@@ -33,13 +33,13 @@ Make instrumentation
 
 ```ruby
 Utrace.new_span('slow-query') do
-  Utrace.add_attrs({user_id: 123})
-  Utrace.log_event('step-1-start')
+  Utrace.attrs({user_id: 123})
+  Utrace.event('step-1-start')
   # ...
-  Utrace.log_event('step-2-start')
+  Utrace.event('step-2-start')
   # ...
 rescue => e
-  Utrace.log_error(e)
+  Utrace.error(e)
 end
 ```
 
