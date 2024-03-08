@@ -29,9 +29,9 @@ Utrace.instance = Utrace::None.new
 Utrace.instance = Utrace::Otel.new
 ```
 
-Make instrumentatio:n
+Make instrumentation
 
-```
+```ruby
 Utrace.new_span('slow-query') do
   Utrace.add_attrs({user_id: 123})
   Utrace.log_event('step-1-start')

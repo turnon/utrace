@@ -8,15 +8,15 @@ module Utrace
       @tracer.in_span(name.to_s) { |_span| block.call }
     end
 
-    def log_event(name, attrs: nil)
+    def event(name, attrs: nil)
       ::OpenTelemetry::Trace.current_span.add_event(name, attributes: validate_attrs(attrs))
     end
 
-    def log_error(err)
+    def error(err)
       ::OpenTelemetry::Trace.current_span.record_exception(err)
     end
 
-    def add_attrs(attrs)
+    def attrs(attrs)
       attrs = validate_attrs(attrs)
       ::OpenTelemetry::Trace.current_span.add_attributes(attrs)
     end

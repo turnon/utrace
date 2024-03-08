@@ -15,16 +15,16 @@ module Utrace
       instance.new_span(name, &block)
     end
 
-    def log_event(name, attrs: nil)
-      instance.log_event(name, attrs: attrs)
+    def event(name, attrs: nil)
+      instance.event(name, attrs: attrs)
     end
 
-    def log_error(err)
-      instance.log_error(err)
+    def error(err)
+      instance.error(err)
     end
 
-    def add_attrs(attrs)
-      instance.add_attrs(attrs)
+    def attrs(attrs)
+      instance.attrs(attrs)
     end
 
     def trace_id
