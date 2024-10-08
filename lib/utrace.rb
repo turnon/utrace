@@ -15,6 +15,10 @@ module Utrace
       instance.new_span(name, &block)
     end
 
+    def untraced(&block)
+      instance.untraced(&block)
+    end
+
     def event(name, attrs: nil)
       instance.event(name, attrs: attrs)
     end

@@ -1,6 +1,12 @@
 module Utrace
   class None
-    def new_span(name, &block); end
+    def new_span(name, &block)
+      block.call
+    end
+
+    def untraced(&block)
+      block.call
+    end
 
     def event(name, attrs: nil); end
 

@@ -8,6 +8,10 @@ module Utrace
       @tracer.in_span(name.to_s) { |_span| block.call }
     end
 
+    def untraced(&block)
+      ::OpenTelemetry::Common::Utilities.untraced(&block)
+    end
+
     def event(name, attrs: nil)
       ::OpenTelemetry::Trace.current_span.add_event(name, attributes: validate_attrs(attrs))
     end
